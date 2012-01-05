@@ -1,0 +1,22 @@
+{
+    "name"        : "redis-protocol",
+    "version"     : "0.0.1",
+    "description" : "implement your server with the redis protocol",
+    "author"      : "Mathieu Lecarme <mathieu@garambrogne.net>",
+    "dependencies": {
+        "redis":   ">=0.7"
+    },
+    "devDependencies": {
+    },
+    "keywords"    : ["redis"],
+    "repositories": [{
+        "type": "git",
+        "path": "git://github.com/athoune/node-redis-protocol.git"
+    }],
+    "homepage"    : "http://github.com/athoune/node-redis-protocol",
+    "bugs"        : "http://github.com/athoune/node-redis-protocol/issues",
+    "licenses"    : [{ "type": "MIT"}],
+    "engine"      : "node",
+    "scripts"     : {
+    }
+}
