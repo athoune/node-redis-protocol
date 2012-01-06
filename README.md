@@ -5,11 +5,24 @@ Implement your own server using the redis protocol.
 
 Build a fake redis or a redis slave.
 
-Status
-------
+Install
+-------
 
-Too early to be usable.
+  npm install
 
+Use
+---
+
+  var redisd = require('redisd');
+  var server = redisd.createServer(function(command) {
+       console.log('query', command);
+       this.encode(['pim', 'pam']);// the answer
+  });
+  server.listen(6379, function() {
+      console.log('fake redis started');
+  });
+
+You can talk to it with any redis tools. Try *redis-cli*.
 
 Licence
 -------
