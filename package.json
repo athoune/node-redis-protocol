@@ -7,6 +7,7 @@
         "redis":   ">=0.7"
     },
     "devDependencies": {
+        "nodeunit": ">=0.6"
     },
     "keywords"    : ["redis"],
     "repositories": [{
@@ -18,5 +19,6 @@
     "licenses"    : [{ "type": "MIT"}],
     "engine"      : "node",
     "scripts"     : {
+        "test": "./node_modules/nodeunit/bin/nodeunit test/*"
     }
 }
