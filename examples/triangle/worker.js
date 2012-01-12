@@ -7,6 +7,8 @@ cluster.queues.push('working');
 
 cluster.worker.on('something long', function(args, respond_to) {
     console.log('worker got some args', args);
+    cluster.call(respond_to, 'something long', ['done'], function(err, resp) {
+    });
 });
 
 cluster.work_loop();
