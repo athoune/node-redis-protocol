@@ -10,4 +10,4 @@ cluster.worker.on('something long', function(args, respond_to) {
 });
 
 cluster.work_loop();
-console.log('Worker is started');
+console.log('Worker is started', cluster.self());
