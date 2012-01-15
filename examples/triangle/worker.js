@@ -7,7 +7,7 @@ cluster.queues.push('working');
 
 cluster.worker.on('something long', function(args, respond_to, job_id) {
     //console.log('worker got some args', args);
-    cluster.answer(respond_to, 'something long', job_id, ['done'], function(err, resp) {
+    cluster.answer(respond_to, 'something long', job_id, ['Hello world!'], function(err, resp) {
     });
 });
 

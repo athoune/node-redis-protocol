@@ -13,9 +13,9 @@ var web = http.createServer(function (req, res) {
       cluster.self(), function(err, resp) {
     //console.log('async job sent', resp);
   });
-  cluster.on('id:something long:' + job_id, function() {
-      //console.log('call back', arguments);
-      res.end('Hello World\n');
+  cluster.on('id:something long:' + job_id, function(arg) {
+      res.write(arg[0]);
+      res.end('\n');
   });
 });
 
