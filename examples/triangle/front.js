@@ -11,10 +11,10 @@ var web = http.createServer(function (req, res) {
   res.writeHead(200, {'Content-Type': 'text/plain'});
   var job_id = cluster.work('working', 'something long', ['hello', 'world'],
       cluster.self(), function(err, resp) {
-    console.log('async job sent', resp);
+    //console.log('async job sent', resp);
   });
   cluster.on('id:something long:' + job_id, function() {
-      console.log('call back', arguments);
+      //console.log('call back', arguments);
       res.end('Hello World\n');
   });
 });
