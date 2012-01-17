@@ -48,6 +48,10 @@ Peoples loves diagram too.
 Try it
 ------
 
+Dependency
+
+    npm install connect
+
 In a first terminal:
 
     node front.js
