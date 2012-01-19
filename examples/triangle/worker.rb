@@ -34,12 +34,16 @@ class Cluster
     end
   end
 
+  def answer who, action, job_id, args
+    client(who).send action, job_id, args.to_json
+  end
+
 end
 
 class Test < Cluster
 
-  def something_long args, answer, job_id
-    client(answer).something_long job_id, ['Hello from ruby class'].to_json
+  def something_long args, who, job_id
+    answer who, :something_long, job_id, ['Hello from ruby class']
   end
 
 end
