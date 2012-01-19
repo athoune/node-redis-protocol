@@ -23,12 +23,7 @@ class Cluster
     while @loop
       task = client(REDIS).blpop 'working', 0
       if task
-        queue = task[0]
-        action = JSON.parse(task[1])
-        cmd = action[0]
-        args = action[1]
-        answer = action[2]
-        job_id = action[3]
+        cmd, args, answer, job_id = JSON.parse(task[1])
         self.method(cmd.to_sym).call args, answer, job_id
       end
     end
