@@ -1,24 +1,40 @@
 require 'json'
 require 'redis'
 
-redis = Redis.new
+REDIS = 'localhost:6379'
 
-again = true
+class Cluster
 
-answer = nil
-
-while again
-  task = redis.blpop 'working', 0
-  if task
-    queue = task[0]
-    action = JSON.parse(task[1])
-    args = action[1]
-    job_id = action[3]
-    unless answer
-      hp = action[2].split(':')
-      answer = Redis.new host: 'localhost', port: hp[1].to_i
-      #answer.connect
-    end
-    answer.something_long job_id, ['Hello from ruby'].to_json
+  def initialize
+    @_client = {}
+    @loop = true
   end
+
+  def client server
+    unless @_client.key? server
+      hp = server.split(':')
+      @_client[server] = Redis.new host: hp[0], port: hp[1].to_i
+    end
+    @_client[server]
+  end
+
+  def loop
+    @loop = true
+    while @loop
+      task = client(REDIS).blpop 'working', 0
+      if task
+        queue = task[0]
+        action = JSON.parse(task[1])
+        args = action[1]
+        answer = action[2]
+        job_id = action[3]
+        client(answer).something_long job_id, ['Hello from ruby'].to_json
+      end
+    end
+  end
+
 end
+
+cluster = Cluster.new
+
+cluster.loop
