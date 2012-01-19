@@ -5,6 +5,11 @@ var redis = require('redis'),
 
 //front and dispatch computer
 
+// unique job id? by Redis?
+// compute once a job asked many times
+// cache job result
+// handle missed response.
+
 var cluster = cluster_lib.createCluster();
 
 var web = connect.createServer(
