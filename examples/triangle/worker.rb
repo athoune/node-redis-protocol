@@ -25,16 +25,25 @@ class Cluster
       if task
         queue = task[0]
         action = JSON.parse(task[1])
+        cmd = action[0]
         args = action[1]
         answer = action[2]
         job_id = action[3]
-        client(answer).something_long job_id, ['Hello from ruby'].to_json
+        self.method(cmd.to_sym).call args, answer, job_id
       end
     end
   end
 
 end
 
-cluster = Cluster.new
+class Test < Cluster
 
-cluster.loop
+  def something_long args, answer, job_id
+    client(answer).something_long job_id, ['Hello from ruby class'].to_json
+  end
+
+end
+
+test = Test.new
+
+test.loop
