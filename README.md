@@ -33,11 +33,10 @@ This code is available at project root level.
 
 You can talk to it with any redis tools. Try *redis-cli*.
 
-### Mix real and fake redis ###
+Continous integration
+---------------------
 
-_examples/triangle_ contains an example of a web server with a queue.
-One front pushing tasks to a queue.
-Workers long polling (with BLPOP) this queue and directly answering to the right web connection.
+[![Build Status](https://secure.travis-ci.org/athoune/node-redis-protocol.png)](http://travis-ci.org/athoune/node-redis-protocol)
 
 Licence
 -------
