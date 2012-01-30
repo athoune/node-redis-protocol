@@ -1,6 +1,6 @@
 {
     "name"        : "redis-protocol",
-    "version"     : "0.1.6",
+    "version"     : "0.1.9",
     "description" : "implement your server with the redis protocol",
     "author"      : "Mathieu Lecarme <mathieu@garambrogne.net>",
     "dependencies": {
