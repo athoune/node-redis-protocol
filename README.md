@@ -20,7 +20,7 @@ Test
 ### Fake redis server ###
 
 ```javascript
-var redisd = require('redisd');
+var redisd = require('redis-protocol');
 var server = redisd.createServer(function(command) {
       console.log('query', command);
       this.encode(['pim', 'pam']);// the answer
