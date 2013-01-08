@@ -1,10 +1,10 @@
 {
     "name"        : "redis-protocol",
-    "version"     : "0.1.9",
+    "version"     : "0.1.10",
     "description" : "implement your server with the redis protocol",
     "author"      : "Mathieu Lecarme <mathieu@garambrogne.net>",
     "dependencies": {
-        "redis":   ">=0.7"
+        "redis":   ">=0.8"
     },
     "devDependencies": {
         "nodeunit": ">=0.6"
