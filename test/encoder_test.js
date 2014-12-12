@@ -34,6 +34,11 @@ module.exports = {
         test.equals('$6\r\npépé\r\n', this.writer.data);
         test.done();
     },
+    'test null': function(test) {
+        this.response.encode(null);
+        test.equals('$-1\r\n', this.writer.data);
+        test.done();
+    },
     'test array': function(test) {
         this.response.encode(["a", "b"]);
         test.equals('*2\r\n$1\r\na\r\n$1\r\nb\r\n', this.writer.data);
