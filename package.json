@@ -11,10 +11,10 @@
     },
     "main"        : "lib/index.js",
     "keywords"    : ["redis"],
-    "repositories": [{
+    "repository": {
         "type": "git",
         "path": "git://github.com/athoune/node-redis-protocol.git"
-    }],
+    },
     "homepage"    : "http://github.com/athoune/node-redis-protocol",
     "bugs"        : "http://github.com/athoune/node-redis-protocol/issues",
     "licenses"    : [{ "type": "MIT"}],
